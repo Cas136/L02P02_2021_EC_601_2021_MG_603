@@ -1,35 +1,40 @@
-﻿@model IEnumerable<L02P02_2021_EC_601_2021_MG_603.Models.autores>
+@model IEnumerable<L02P02_2021_EC_601_2021_MG_603.Models.autores>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listado de Autores";
 }
 
-<h1>Index</h1>
+<!-- Importar CSS -->
+<link rel="stylesheet" href="~/css/style.css" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<!-- Barra de progreso -->
+<div class="container">
+    <ul class="progressbar">
+        <li class="active">Autores</li>
+        <li>Libros</li>
+        <li>Comentarios Existentes</li>
+        <li>Nuevo Comentario</li>
+    </ul>
+</div>
+
+<h2>Listado de Autores</h2>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.autor)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.First().autor)</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.autor)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.autor)</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.id">Ver Detalles</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
