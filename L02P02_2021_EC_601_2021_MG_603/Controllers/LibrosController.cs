@@ -18,13 +18,11 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             _context = context;
         }
 
-        // GET: Libros
         public async Task<IActionResult> Index()
         {
             return View(await _context.libros.ToListAsync());
         }
-
-        // GET: Libros/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,15 +40,11 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(libros);
         }
 
-        // GET: Libros/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Libros/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,nombre,descripcion,url_imagen,id_autor,id_categoria,precio,estado")] libros libros)
@@ -64,7 +58,7 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(libros);
         }
 
-        // GET: Libros/Edit/5
+      
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,10 +73,7 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             }
             return View(libros);
         }
-
-        // POST: Libros/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,nombre,descripcion,url_imagen,id_autor,id_categoria,precio,estado")] libros libros)
@@ -115,7 +106,6 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(libros);
         }
 
-        // GET: Libros/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +123,6 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(libros);
         }
 
-        // POST: Libros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -154,3 +143,4 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
         }
     }
 }
+
