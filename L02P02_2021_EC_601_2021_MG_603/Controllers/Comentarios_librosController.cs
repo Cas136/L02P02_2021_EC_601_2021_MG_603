@@ -18,13 +18,11 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             _context = context;
         }
 
-        // GET: Comentarios_libros
         public async Task<IActionResult> Index()
         {
             return View(await _context.comentarios_libros.ToListAsync());
         }
 
-        // GET: Comentarios_libros/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -41,16 +39,11 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
 
             return View(comentarios_libros);
         }
-
-        // GET: Comentarios_libros/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Comentarios_libros/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,id_libro,comentarios,usuario,created_at")] comentarios_libros comentarios_libros)
@@ -64,7 +57,6 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(comentarios_libros);
         }
 
-        // GET: Comentarios_libros/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,10 +71,7 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             }
             return View(comentarios_libros);
         }
-
-        // POST: Comentarios_libros/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,id_libro,comentarios,usuario,created_at")] comentarios_libros comentarios_libros)
@@ -133,7 +122,6 @@ namespace L02P02_2021_EC_601_2021_MG_603.Controllers
             return View(comentarios_libros);
         }
 
-        // POST: Comentarios_libros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
